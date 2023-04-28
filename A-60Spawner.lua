@@ -134,7 +134,6 @@ Spawner.createEntity = function(config)
             -- EntityTable
 
             local entityTable = {
-                Model = entityModel,
                 Config = config,
                 Debug = {
                     OnEntitySpawned = function() end,
@@ -181,14 +180,13 @@ Spawner.runEntity = function(entityTable)
 
     -- Spawn
 
-    local entityModel = loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Yummy/main/A-60%20Model.txt"))()
     local startNodeIndex = entityTable.Config.BackwardsMovement and #nodes or 1
     local startNodeOffset = entityTable.Config.BackwardsMovement and -50 or 50
 
     EntityConnections[entityModel] = {}
     local entityConnections = EntityConnections[entityModel]
     
-    entityModel:PivotTo(nodes[startNodeIndex].CFrame * CFrame.new(0, 0, startNodeOffset) + Vector3.new(0, 3.5 + entityTable.Config.HeightOffset, 0))
+    entityModel.PrimaryPart:PivotTo(nodes[startNodeIndex].CFrame * CFrame.new(0, 0, startNodeOffset) + Vector3.new(0, 3.5 + entityTable.Config.HeightOffset, 0))
     entityModel.Parent = workspace
     task.spawn(entityTable.Debug.OnEntitySpawned)
 
