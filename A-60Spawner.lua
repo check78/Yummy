@@ -180,7 +180,7 @@ Spawner.runEntity = function(entityTable)
 
     -- Spawn
 
-    local entityModel = entityModel:Clone()
+    local entityModel = game.ReplicatedStorage:FindFirstChild("A-60"):Clone()
     local startNodeIndex = entityTable.Config.BackwardsMovement and #nodes or 1
     local startNodeOffset = entityTable.Config.BackwardsMovement and -50 or 50
 
