@@ -1,5 +1,4 @@
 -- Jumpscare Sounds
-local sek = loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Yummy/main/A-60%20Model.txt"))()
 local boo = Instance.new("Sound")
 				boo.Volume = 2
 				boo.SoundId = "rbxassetid://6169705721"
@@ -117,7 +116,7 @@ Spawner.createEntity = function(config)
 
     -- Model
 
-    local entityModel = sek
+    local entityModel = LoadCustomInstance("https://github.com/check78/Yummy/blob/main/A-60%20Model.txt")
 
     if typeof(entityModel) == "Instance" and entityModel.ClassName == "Model" then
         entityModel.PrimaryPart = entityModel.PrimaryPart or entityModel:FindFirstChildWhichIsA("BasePart")
@@ -135,7 +134,7 @@ Spawner.createEntity = function(config)
             -- EntityTable
 
             local entityTable = {
-                Model = sek,
+                Model = LoadCustomInstance("https://github.com/check78/Yummy/blob/main/A-60%20Model.txt"),
                 Config = config,
                 Debug = {
                     OnEntitySpawned = function() end,
@@ -182,7 +181,7 @@ Spawner.runEntity = function(entityTable)
 
     -- Spawn
 
-    local entityModel = sek:Clone()
+    local entityModel = entityTable.Model:Clone()
     local startNodeIndex = entityTable.Config.BackwardsMovement and #nodes or 1
     local startNodeOffset = entityTable.Config.BackwardsMovement and -50 or 50
 
