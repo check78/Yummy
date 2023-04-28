@@ -1,5 +1,5 @@
 -- Jumpscare Sounds
-local TS = game:GetService("TweenService")
+local TS = game.TweenService
 local boo = Instance.new("Sound")
 				boo.Volume = 2
 				boo.SoundId = "rbxassetid://6169705721"
@@ -452,9 +452,9 @@ end)()
                         -- Death handling
                         
                         task.spawn(entityTable.Debug.OnDeath)
+wait(0.1)
 TS:Create(game.Lighting.MainColorCorrection, TweenInfo.new(1), {Contrast = 0.5}):Play()
-local TW1 = TS:Create(game.Lighting.MainColorCorrection, TweenInfo.new(1),{TintColor = Color3.fromRGB(655, 0, 0)})
-TW1:Play()
+TS:Create(game.Lighting.MainColorCorrection, TweenInfo.new(1),{TintColor = Color3.fromRGB(655, 0, 0)}):Play()
                         local damn = entityModel.PrimaryPart:Clone()
                         damn.Parent = game.Workspace.CurrentCamera
                         game:GetService("RunService").RenderStepped:Connect(function()
@@ -475,8 +475,7 @@ end)()
                         Bruh:Play()
                         wait(dances[math.random(1, #dances)])
 TS:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5), {Contrast = 0}):Play()
-local TW2 = TS:Create(game.Lighting.MainColorCorrection, TweenInfo.new(7),{TintColor = Color3.fromRGB(255, 255, 255)})
-TW2:Play()
+TS:Create(game.Lighting.MainColorCorrection, TweenInfo.new(7),{TintColor = Color3.fromRGB(255, 255, 255)}):Play()
 boo:Play()
 Moment:Play()
                         damn:Destroy()
