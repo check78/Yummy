@@ -14,6 +14,172 @@ local boo = Instance.new("Sound")
 local dances = {"0.4", "0.5", "0.6", "0.7", "0.8", "0.9", "1", "1.2", "1.4", "1.6", "1.7", "1.8", "2", "2.3", "2.5"}
 local mom = {"rbxassetid://192267375", "rbxassetid://1972219024", "rbxassetid://1822114127", "rbxassetid://3413871766", "rbxassetid://3354536350", "rbxassetid://17865063", "rbxassetid://4749623118", "rbxassetid://1857893092", "rbxassetid://4508624823", "rbxassetid://6309704436", "rbxassetid://10458678325", "rbxassetid://13265402515", "rbxassetid://13265404267", "rbxassetid://13265406067", "rbxassetid://13263988191", "rbxassetid://12791569928", "rbxassetid://12830765101", "rbxassetid://11857886160", "rbxassetid://7000842409", "rbxassetid://7000843482", "rbxassetid://10458678325", "rbxassetid://10458679718", "rbxassetid://11857886160"}
 
+-- model
+local Modl = Instance.new("Model")
+Modl.Name = "A-60"
+Modl.Parent = workspace
+
+			local Eyes = Instance.new("Part", Modl)
+			Eyes.Transparency = 1
+Modl.PrimaryPart = Eyes
+
+			local Attachment = Instance.new("Attachment", Eyes)
+
+			local EyesParticle = Instance.new("ParticleEmitter", Attachment)
+			EyesParticle.LightInfluence = 0
+			EyesParticle.Brightness = 1.26
+			EyesParticle.Size = NumberSequence.new({
+    NumberSequenceKeypoint.new(0, 5),
+    NumberSequenceKeypoint.new(1, 4)
+})
+
+
+EyesParticle.Transparency = NumberSequence.new{
+				NumberSequenceKeypoint.new(0, 0),
+				NumberSequenceKeypoint.new(0.496, .637),
+				NumberSequenceKeypoint.new(1, 0),
+			}
+
+			EyesParticle.Texture = "rbxassetid://12145599275"
+
+			EyesParticle.Lifetime = NumberRange.new(0.03,0.3)
+			EyesParticle.Rate = 250
+			EyesParticle.Rotation = NumberRange.new(0, 0.1)
+			EyesParticle.RotSpeed = NumberRange.new(-5,5)
+			EyesParticle.Speed = NumberRange.new(5)
+EyesParticle.Color = ColorSequence.new(Color3.fromRGB(255, 0, 0))
+EyesParticle.VelocitySpread = 350
+EyesParticle.ZOffset = 0
+EyesParticle.Name = "Face1"
+
+			EyesParticle.Drag = 1
+			EyesParticle.LockedToPart = true
+			EyesParticle.VelocityInheritance = 0.5
+
+			Eyes.Name = "Multi"
+
+			Eyes.Anchored = true
+			Eyes.CanCollide = false
+			Eyes.Size = Vector3.new(20,20,5)
+
+local Static = Instance.new("Sound")
+Static.SoundId = "rbxassetid://4903742660"
+Static.Parent = Eyes
+Static.RollOffMode = Enum.RollOffMode.InverseTapered
+Static.EmitterSize = 30
+Static.RollOffMaxDistance = 300
+Static.Volume = 1
+Static.Name = "Far"
+Static.Pitch = 2
+Static.Looped = true
+local distort3 = Instance.new("DistortionSoundEffect")
+distort3.Level = 0.9
+distort3.Parent = Static
+local shift = Instance.new("PitchShiftSoundEffect")
+shift.Octave = 0.5
+shift.Parent = Static
+local Static2 = Instance.new("Sound")
+Static2.Name = "TooClose"
+Static2.SoundId = "rbxassetid://8028069841"
+Static2.Pitch = 1.6
+Static2.RollOffMode = Enum.RollOffMode.InverseTapered
+Static2.EmitterSize = 1
+Static2.RollOffMaxDistance = 20
+Static2.Volume = 5
+Static2.Looped = true
+Static2.Parent = Eyes
+    local shift2 = Instance.new("PitchShiftSoundEffect")
+    shift2.Octave = 0.5
+    shift2.Parent = Static2
+local distort2 = Instance.new("DistortionSoundEffect")
+distort2.Level = 0.9
+distort2.Parent = Static2
+local roast = Instance.new("Sound")
+roast.Parent = Eyes
+roast.Name = "close"
+roast.SoundId = "rbxassetid://6336173633"
+roast.Volume = 5
+roast.Pitch = 0.8
+local distort = Instance.new("DistortionSoundEffect")
+distort.Level = 0.9
+distort.Parent = roast
+local eq = Instance.new("EqualizerSoundEffect")
+eq.HighGain = 10
+eq.MidGain = 10
+eq.LowGain = 10
+eq.Parent = roast
+roast.Looped = true
+roast.RollOffMaxDistance = 60
+roast.RollOffMinDistance = 1
+roast.RollOffMode = Enum.RollOffMode.InverseTapered
+roast:Play()
+Static:Play()
+Static2:Play()
+local static1 = Static:Clone()
+static1.Parent = Eyes
+static1.TimePosition = 2
+
+
+			local Light1 = Instance.new("PointLight", Eyes)
+
+			Light1.Brightness = 20
+			Light1.Color = Color3.fromRGB(255,0,0)
+			Light1.Enabled = true
+			Light1.Range = 20
+			Light1.Shadows = true
+Light1.Name = "LightFar"
+
+			local Light2 = Instance.new("PointLight", Eyes)
+
+			Light2.Brightness = 10
+			Light2.Color = Color3.fromRGB(255,191,0)
+			Light2.Enabled = true
+			Light2.Range = 10
+			Light2.Shadows = true
+Light2.Name = "LightClose"
+
+-- Create the smoke particle emitter
+local smoke = Instance.new("ParticleEmitter")
+smoke.Name = "Smoke"
+smoke.Texture = "rbxasset://textures/particles/smoke_main.dds" -- Smoke texture
+smoke.Color = ColorSequence.new(Color3.fromRGB(0, 0, 0)) -- White smoke color
+smoke.Size = NumberSequence.new(10, 0) -- Smoke size
+smoke.Lifetime = NumberRange.new(0.9, 6) -- Smoke lifetime
+smoke.Rate = 10000 -- Smoke emission rate
+smoke.Speed = NumberRange.new(5, 10) -- Smoke speed
+smoke.VelocitySpread = 50 -- Smoke velocity spread
+smoke.Rotation = NumberRange.new(-180, 180) -- Smoke rotation
+smoke.LightEmission = 0.2 -- Smoke light emission
+smoke.LightInfluence = 1
+smoke.LockedToPart = false -- Lock the smoke to the emitter's parent part
+smoke.Parent = Eyes.Attachment -- Add the smoke to the parent part
+smoke.ZOffset = -0.5
+
+
+local ParticleEmitter = Instance.new("ParticleEmitter")
+ParticleEmitter.Parent = Eyes.Attachment
+
+-- Set particle properties
+ParticleEmitter.Texture = "rbxasset://textures/particles/smoke_main.dds" -- Replace with actual texture ID
+ParticleEmitter.Lifetime = NumberRange.new(0.5, 4)
+ParticleEmitter.Rate = 20000
+ParticleEmitter.Speed = NumberRange.new(2, 3)
+ParticleEmitter.VelocitySpread = 100
+ParticleEmitter.Rotation = NumberRange.new(0, 360)
+ParticleEmitter.RotSpeed = NumberRange.new(-50, 50)
+ParticleEmitter.Size = NumberSequence.new({
+    NumberSequenceKeypoint.new(0, 2),
+    NumberSequenceKeypoint.new(1, 6)
+})
+ParticleEmitter.Color = ColorSequence.new({
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)),
+    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(105,0,0)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(0,0,0))
+})
+ParticleEmitter.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0,1,0),NumberSequenceKeypoint.new(0.11021800339221954,0,0),NumberSequenceKeypoint.new(0.2204360067844391,1,0),NumberSequenceKeypoint.new(0.31687700748443604,0,0),NumberSequenceKeypoint.new(0.4282430112361908,1,0),NumberSequenceKeypoint.new(0.5591269731521606,0,0),NumberSequenceKeypoint.new(0.6934559941291809,1,0),NumberSequenceKeypoint.new(0.8013780117034912,0,0),NumberSequenceKeypoint.new(1,1,0)})
+ParticleEmitter.ZOffset = -0.3
+local entityModel = Modl
+
 -- Services
 
 local Players = game:GetService("Players")
@@ -116,8 +282,6 @@ Spawner.createEntity = function(config)
 
     -- Model
 
-    local entityModel = loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Yummy/main/A-60%20Model.txt"))()
-
     if typeof(entityModel) == "Instance" and entityModel.ClassName == "Model" then
         entityModel.PrimaryPart = entityModel.PrimaryPart or entityModel:FindFirstChildWhichIsA("BasePart")
         
@@ -134,6 +298,7 @@ Spawner.createEntity = function(config)
             -- EntityTable
 
             local entityTable = {
+                Model = entityModel,
                 Config = config,
                 Debug = {
                     OnEntitySpawned = function() end,
@@ -179,8 +344,6 @@ Spawner.runEntity = function(entityTable)
     end
 
     -- Spawn
-
-    local entityModel = game.ReplicatedStorage:FindFirstChild("A-60"):Clone()
     local startNodeIndex = entityTable.Config.BackwardsMovement and #nodes or 1
     local startNodeOffset = entityTable.Config.BackwardsMovement and -50 or 50
 
@@ -188,7 +351,6 @@ Spawner.runEntity = function(entityTable)
     local entityConnections = EntityConnections[entityModel]
     
     entityModel:PivotTo(nodes[startNodeIndex].CFrame * CFrame.new(0, 0, startNodeOffset) + Vector3.new(0, 3.5 + entityTable.Config.HeightOffset, 0))
-    entityModel.Parent = workspace
     task.spawn(entityTable.Debug.OnEntitySpawned)
 
 coroutine.wrap(function()
@@ -411,8 +573,6 @@ Moment:Play()
         boo:Destroy()
         wait(5)
         entityModel:Destroy()
-wait(1)
-entityModel:Destroy()
     end
 end
 
