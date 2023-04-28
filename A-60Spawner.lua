@@ -66,8 +66,8 @@ local Static = Instance.new("Sound")
 Static.SoundId = "rbxassetid://4903742660"
 Static.Parent = Eyes
 Static.RollOffMode = Enum.RollOffMode.InverseTapered
-Static.EmitterSize = 30
-Static.RollOffMaxDistance = 300
+Static.EmitterSize = 50
+Static.RollOffMaxDistance = 5000000
 Static.Volume = 1
 Static.Name = "Far"
 Static.Pitch = 2
@@ -83,7 +83,7 @@ Static2.Name = "TooClose"
 Static2.SoundId = "rbxassetid://8028069841"
 Static2.Pitch = 1.6
 Static2.RollOffMode = Enum.RollOffMode.InverseTapered
-Static2.EmitterSize = 1
+Static2.EmitterSize = 0.1
 Static2.RollOffMaxDistance = 20
 Static2.Volume = 5
 Static2.Looped = true
@@ -463,9 +463,9 @@ end)()
                         -- Death handling
                         
                         task.spawn(entityTable.Debug.OnDeath)
-game:GetService("TweenService"):Create(game.Lighting.MainColorCorrection, TweenInfo.new(1), {Contrast = 0.5}):Play()
-local TW = game:GetService("TweenService"):Create(game.Lighting.MainColorCorrection, TweenInfo.new(1),{TintColor = Color3.fromRGB(655, 0, 0)})
-TW:Play()
+TW:Create(game.Lighting.MainColorCorrection, TweenInfo.new(1), {Contrast = 0.5}):Play()
+local TW1 = TW:Create(game.Lighting.MainColorCorrection, TweenInfo.new(1),{TintColor = Color3.fromRGB(655, 0, 0)})
+TW1:Play()
                         local damn = entityModel.PrimaryPart:Clone()
                         damn.Parent = game.Workspace.CurrentCamera
                         game:GetService("RunService").RenderStepped:Connect(function()
@@ -485,9 +485,9 @@ end)()
                             end
                         Bruh:Play()
                         wait(dances[math.random(1, #dances)])
-game:GetService("TweenService"):Create(game.Lighting.MainColorCorrection, TweenInfo.new(5), {Contrast = 0}):Play()
-local TW = game:GetService("TweenService"):Create(game.Lighting.MainColorCorrection, TweenInfo.new(7),{TintColor = Color3.fromRGB(255, 255, 255)})
-TW:Play()
+TW:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5), {Contrast = 0}):Play()
+local TW2 = TW:Create(game.Lighting.MainColorCorrection, TweenInfo.new(7),{TintColor = Color3.fromRGB(255, 255, 255)})
+TW2:Play()
 boo:Play()
 Moment:Play()
                         damn:Destroy()
