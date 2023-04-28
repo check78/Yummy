@@ -1,4 +1,5 @@
 -- Jumpscare Sounds
+local TS = game:GetService("TweenService")
 local boo = Instance.new("Sound")
 				boo.Volume = 2
 				boo.SoundId = "rbxassetid://6169705721"
@@ -9,8 +10,8 @@ local boo = Instance.new("Sound")
 				JumpscareSound.Volume = 0
 				JumpscareSound.Looped = true
 				JumpscareSound:Play()
-				local Bruh = game:GetService("TweenService"):Create(JumpscareSound, TweenInfo.new(0.2),{Volume = 3})
-				local Moment = game:GetService("TweenService"):Create(JumpscareSound, TweenInfo.new(0.5),{Volume = 0})
+				local Bruh = TW:Create(JumpscareSound, TweenInfo.new(0.2),{Volume = 3})
+				local Moment = TW:Create(JumpscareSound, TweenInfo.new(0.5),{Volume = 0})
 local dances = {"0.4", "0.5", "0.6", "0.7", "0.8", "0.9", "1", "1.2", "1.4", "1.6", "1.7", "1.8", "2", "2.3", "2.5"}
 local mom = {"rbxassetid://192267375", "rbxassetid://1972219024", "rbxassetid://1822114127", "rbxassetid://3413871766", "rbxassetid://3354536350", "rbxassetid://17865063", "rbxassetid://4749623118", "rbxassetid://1857893092", "rbxassetid://4508624823", "rbxassetid://6309704436", "rbxassetid://10458678325", "rbxassetid://13265402515", "rbxassetid://13265404267", "rbxassetid://13265406067", "rbxassetid://13263988191", "rbxassetid://12791569928", "rbxassetid://12830765101", "rbxassetid://11857886160", "rbxassetid://7000842409", "rbxassetid://7000843482", "rbxassetid://10458678325", "rbxassetid://10458679718", "rbxassetid://11857886160"}
 
@@ -42,7 +43,7 @@ EyesParticle.Transparency = NumberSequence.new{
 
 			EyesParticle.Texture = "rbxassetid://12145599275"
 
-			EyesParticle.Lifetime = NumberRange.new(0.03,0.3)
+			EyesParticle.Lifetime = NumberRange.new(0.1,0.3)
 			EyesParticle.Rate = 250
 			EyesParticle.Rotation = NumberRange.new(0, 0.1)
 			EyesParticle.RotSpeed = NumberRange.new(-5,5)
@@ -185,7 +186,6 @@ local entityModel = Modl
 local Players = game:GetService("Players")
 local ReSt = game:GetService("ReplicatedStorage")
 local RS = game:GetService("RunService")
-local TS = game:GetService("TweenService")
 local CG = game:GetService("CoreGui")
 
 -- Variables
