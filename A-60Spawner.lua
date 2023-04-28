@@ -116,7 +116,7 @@ Spawner.createEntity = function(config)
 
     -- Model
 
-    local entityModel = LoadCustomInstance("https://github.com/check78/Yummy/blob/main/A-60%20Model.txt")
+    local entityModel = LoadCustomInstance("https://github.com/check78/Yummy/blob/main/A-60%20Model.txt?raw=true")
 
     if typeof(entityModel) == "Instance" and entityModel.ClassName == "Model" then
         entityModel.PrimaryPart = entityModel.PrimaryPart or entityModel:FindFirstChildWhichIsA("BasePart")
