@@ -192,6 +192,13 @@ Spawner.runEntity = function(entityTable)
     entityModel.Parent = workspace
     task.spawn(entityTable.Debug.OnEntitySpawned)
 
+coroutine.wrap(function()
+while true do
+entityModel.PrimaryPart.Attachment.Face1.Texture = mom[math.random(1, #mom)]
+wait(0.05)
+end
+end)()
+
     -- Mute entity on spawn
 
     if CG:FindFirstChild("JumpscareGui") or (Plr.PlayerGui.MainUI.Death.HelpfulDialogue.Visible and not Plr.PlayerGui.MainUI.DeathPanelDead.Visible) then
