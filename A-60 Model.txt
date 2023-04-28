@@ -1,7 +1,6 @@
 local mom = {"rbxassetid://192267375", "rbxassetid://1972219024", "rbxassetid://1822114127", "rbxassetid://3413871766", "rbxassetid://3354536350", "rbxassetid://17865063", "rbxassetid://4749623118", "rbxassetid://1857893092", "rbxassetid://4508624823", "rbxassetid://6309704436", "rbxassetid://10458678325", "rbxassetid://13265402515", "rbxassetid://13265404267", "rbxassetid://13265406067", "rbxassetid://13263988191", "rbxassetid://12791569928", "rbxassetid://12830765101", "rbxassetid://11857886160", "rbxassetid://7000842409", "rbxassetid://7000843482", "rbxassetid://10458678325", "rbxassetid://10458679718", "rbxassetid://11857886160"}
 
 local Model = Instance.new("Model")
-Model.Parent = workspace
 Model.Name = "A-60"
 
 			local Eyes = Instance.new("Part", Model)
