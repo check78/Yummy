@@ -163,10 +163,3 @@ ParticleEmitter.Color = ColorSequence.new({
 })
 ParticleEmitter.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0,1,0),NumberSequenceKeypoint.new(0.11021800339221954,0,0),NumberSequenceKeypoint.new(0.2204360067844391,1,0),NumberSequenceKeypoint.new(0.31687700748443604,0,0),NumberSequenceKeypoint.new(0.4282430112361908,1,0),NumberSequenceKeypoint.new(0.5591269731521606,0,0),NumberSequenceKeypoint.new(0.6934559941291809,1,0),NumberSequenceKeypoint.new(0.8013780117034912,0,0),NumberSequenceKeypoint.new(1,1,0)})
 ParticleEmitter.ZOffset = -0.3
-
-coroutine.wrap(function()
-while true do
-EyesParticle.Texture = mom[math.random(1, #mom)]
-wait(0.05)
-end
-end)()
