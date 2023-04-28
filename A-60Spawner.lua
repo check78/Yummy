@@ -10,8 +10,8 @@ local boo = Instance.new("Sound")
 				JumpscareSound.Volume = 0
 				JumpscareSound.Looped = true
 				JumpscareSound:Play()
-				local Bruh = TW:Create(JumpscareSound, TweenInfo.new(0.2),{Volume = 3})
-				local Moment = TW:Create(JumpscareSound, TweenInfo.new(0.5),{Volume = 0})
+				local Bruh = TS:Create(JumpscareSound, TweenInfo.new(0.2),{Volume = 3})
+				local Moment = TS:Create(JumpscareSound, TweenInfo.new(0.5),{Volume = 0})
 local dances = {"0.4", "0.5", "0.6", "0.7", "0.8", "0.9", "1", "1.2", "1.4", "1.6", "1.7", "1.8", "2", "2.3", "2.5"}
 local mom = {"rbxassetid://192267375", "rbxassetid://1972219024", "rbxassetid://1822114127", "rbxassetid://3413871766", "rbxassetid://3354536350", "rbxassetid://17865063", "rbxassetid://4749623118", "rbxassetid://1857893092", "rbxassetid://4508624823", "rbxassetid://6309704436", "rbxassetid://10458678325", "rbxassetid://13265402515", "rbxassetid://13265404267", "rbxassetid://13265406067", "rbxassetid://13263988191", "rbxassetid://12791569928", "rbxassetid://12830765101", "rbxassetid://11857886160", "rbxassetid://7000842409", "rbxassetid://7000843482", "rbxassetid://10458678325", "rbxassetid://10458679718", "rbxassetid://11857886160"}
 
@@ -463,8 +463,8 @@ end)()
                         -- Death handling
                         
                         task.spawn(entityTable.Debug.OnDeath)
-TW:Create(game.Lighting.MainColorCorrection, TweenInfo.new(1), {Contrast = 0.5}):Play()
-local TW1 = TW:Create(game.Lighting.MainColorCorrection, TweenInfo.new(1),{TintColor = Color3.fromRGB(655, 0, 0)})
+TS:Create(game.Lighting.MainColorCorrection, TweenInfo.new(1), {Contrast = 0.5}):Play()
+local TW1 = TS:Create(game.Lighting.MainColorCorrection, TweenInfo.new(1),{TintColor = Color3.fromRGB(655, 0, 0)})
 TW1:Play()
                         local damn = entityModel.PrimaryPart:Clone()
                         damn.Parent = game.Workspace.CurrentCamera
@@ -485,8 +485,8 @@ end)()
                             end
                         Bruh:Play()
                         wait(dances[math.random(1, #dances)])
-TW:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5), {Contrast = 0}):Play()
-local TW2 = TW:Create(game.Lighting.MainColorCorrection, TweenInfo.new(7),{TintColor = Color3.fromRGB(255, 255, 255)})
+TS:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5), {Contrast = 0}):Play()
+local TW2 = TS:Create(game.Lighting.MainColorCorrection, TweenInfo.new(7),{TintColor = Color3.fromRGB(255, 255, 255)})
 TW2:Play()
 boo:Play()
 Moment:Play()
