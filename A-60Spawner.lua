@@ -443,17 +443,6 @@ end)()
                     task.spawn(function()
                         Char:SetAttribute("IsDead", true)
 
-                        -- Mute entity
-
-                        warn("mute entity")
-
-                        for _, v in next, entityModel.RushNew:GetDescendants() do
-                            if v.ClassName == "Sound" and v.Playing then
-                                local oldVolume = v.Volume
-                                v.Volume = 0
-                            end
-                        end
-
                         -- Jumpscare
                         
                         if entityTable.Config.Jumpscare[1] then
@@ -508,7 +497,7 @@ Moment:Play()
 
                             for _, v in next, entityModel:GetDescendants() do
                                 if v.ClassName == "Sound" then
-                                    TS:Create(v, TweenInfo.new(2), {Volume = oldVolume}):Play()
+
                                 end
                             end
                         end)
