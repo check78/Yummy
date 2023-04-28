@@ -135,7 +135,7 @@ Spawner.createEntity = function(config)
             -- EntityTable
 
             local entityTable = {
-                Model = entityModel,
+                Model = sek,
                 Config = config,
                 Debug = {
                     OnEntitySpawned = function() end,
