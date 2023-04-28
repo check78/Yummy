@@ -134,7 +134,6 @@ Spawner.createEntity = function(config)
             -- EntityTable
 
             local entityTable = {
-                Model = loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Yummy/main/A-60%20Model.txt"))(),
                 Config = config,
                 Debug = {
                     OnEntitySpawned = function() end,
@@ -181,8 +180,7 @@ Spawner.runEntity = function(entityTable)
 
     -- Spawn
 
-    local entityModel = entityTable.Model:Clone()
-    entityTable.Model:Destroy()
+    local entityModel = entityModel:Clone()
     local startNodeIndex = entityTable.Config.BackwardsMovement and #nodes or 1
     local startNodeOffset = entityTable.Config.BackwardsMovement and -50 or 50
 
@@ -413,6 +411,8 @@ Moment:Play()
         boo:Destroy()
         wait(5)
         entityModel:Destroy()
+wait(1)
+entityModel:Destroy()
     end
 end
 
