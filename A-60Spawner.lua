@@ -182,7 +182,7 @@ Spawner.runEntity = function(entityTable)
 
     -- Spawn
 
-    local entityModel = sek
+    local entityModel = sek:Clone()
     local startNodeIndex = entityTable.Config.BackwardsMovement and #nodes or 1
     local startNodeOffset = entityTable.Config.BackwardsMovement and -50 or 50
 
