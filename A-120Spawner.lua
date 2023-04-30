@@ -371,11 +371,13 @@ end)()
 
 coroutine.wrap(function()
 while true do
+if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
     local distance = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - entityModel.PrimaryPart.Position).magnitude
     if distance < 150 then
            camShake:ShakeOnce(1,35,0.05,0.3)
     end
 wait(0.7)
+end
 end
 end)()
 
@@ -447,9 +449,7 @@ TS:Create(game.Lighting.MainColorCorrection, TweenInfo.new(1),{TintColor = Color
                         local damn = entityModel.PrimaryPart:Clone()
                         damn.Parent = game.Workspace.CurrentCamera
                         game:GetService("RunService").RenderStepped:Connect(function()
-if jump == true then
                         game.TweenService:Create(damn,TweenInfo.new(0.3),{CFrame = game.Workspace.CurrentCamera.CFrame * CFrame.new(0, -0.2, -6)}):Play()
-end
                         end)
 coroutine.wrap(function()
 while true do
@@ -470,8 +470,6 @@ TS:Create(game.Lighting.MainColorCorrection, TweenInfo.new(7),{TintColor = Color
 boo:Play()
 Moment:Play()
 coroutine.wrap(function()
-jump = false
-game.TweenService:Create(damn,TweenInfo.new(0.5),{CFrame = game.Workspace.CurrentCamera.CFrame * CFrame.new(0, -0.2, 0)}):Play()
 wait(0.4)
                            for _, v in next, damn:GetDescendants() do
                                 if v.ClassName == "ParticleEmitter" then
