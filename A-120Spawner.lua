@@ -371,10 +371,12 @@ end)()
 
 coroutine.wrap(function()
 while true do
-    local distance = (workspace.CurrentCamera.Position - entityModel.PrimaryPart.Position).magnitude
+if not Char:GetAttribute("IsDead") then
+    local distance = (game.Players.LocalPlayer.HumanoidRootPart.Position - entityModel.PrimaryPart.Position).magnitude
     if distance < 150 then
            camShake:ShakeOnce(1,35,0.05,0.3)
     end
+end
 wait(0.7)
 end
 end)()
