@@ -371,13 +371,11 @@ end)()
 
 coroutine.wrap(function()
 while true do
-if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
-    local distance = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - entityModel.PrimaryPart.Position).magnitude
+    local distance = (workspace.CurrentCamera.Position - entityModel.PrimaryPart.Position).magnitude
     if distance < 150 then
            camShake:ShakeOnce(1,35,0.05,0.3)
     end
 wait(0.7)
-end
 end
 end)()
 
@@ -442,19 +440,18 @@ end
                         -- Death handling
                         
                         task.spawn(entityTable.Debug.OnDeath)
-local jump = true
+                        local damn = entityModel.PrimaryPart:Clone()
+                        damn.Parent = game.Workspace.CurrentCamera
 wait(0.1)
 TS:Create(game.Lighting.MainColorCorrection, TweenInfo.new(1), {Contrast = 0.5}):Play()
 TS:Create(game.Lighting.MainColorCorrection, TweenInfo.new(1),{TintColor = Color3.fromRGB(655, 0, 0)}):Play()
-                        local damn = entityModel.PrimaryPart:Clone()
-                        damn.Parent = game.Workspace.CurrentCamera
                         game:GetService("RunService").RenderStepped:Connect(function()
                         game.TweenService:Create(damn,TweenInfo.new(0.3),{CFrame = game.Workspace.CurrentCamera.CFrame * CFrame.new(0, -0.2, -6)}):Play()
                         end)
 coroutine.wrap(function()
 while true do
 damn.Attachment.Face1.Texture = scare[math.random(1, #scare)]
-wait(0.1)
+wait(0.2)
 end
 end)()
 
