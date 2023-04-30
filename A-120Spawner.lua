@@ -482,6 +482,7 @@ wait(3)
                         damn:Destroy()
 end)()
 coroutine.wrap(function()
+wait(0.35)
                         Hum.Health = 0
                         ReSt.GameStats["Player_".. Plr.Name].Total.DeathCause.Value = "A-120"
                         

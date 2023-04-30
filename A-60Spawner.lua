@@ -1,16 +1,8 @@
 -- Jumpscare Sounds
 local TS = game.TweenService
-local boo = Instance.new("Sound")
-				boo.Volume = 2
-				boo.SoundId = "rbxassetid://6169705721"
-				boo.Parent = game.Players.LocalPlayer.PlayerGui
-				local JumpscareSound = Instance.new("Sound")
-				JumpscareSound.SoundId = "rbxassetid://6459610652"
-				JumpscareSound.Parent = game.Players.LocalPlayer.PlayerGui
-				JumpscareSound.Volume = 0
-				JumpscareSound.Looped = true
-				JumpscareSound:Play()
-				local Bruh = TS:Create(JumpscareSound, TweenInfo.new(0.2),{Volume = 3})
+local boo = game.Players.LocalPlayer.PlayerGui.MainUI.Die
+				local JumpscareSound = game.Players.LocalPlayer.PlayerGui.MainUI.Scare1
+				local Bruh = TS:Create(JumpscareSound, TweenInfo.new(0.35),{Volume = 3})
 				local Moment = TS:Create(JumpscareSound, TweenInfo.new(0.5),{Volume = 0})
 local dances = {"0.4", "0.5", "0.6", "0.7", "0.8", "0.9", "1", "1.2", "1.4", "1.6", "1.7", "1.8", "2", "2.3", "2.5"}
 local mom = {"rbxassetid://192267375", "rbxassetid://1972219024", "rbxassetid://1822114127", "rbxassetid://3413871766", "rbxassetid://3354536350", "rbxassetid://17865063", "rbxassetid://4749623118", "rbxassetid://1857893092", "rbxassetid://4508624823", "rbxassetid://6309704436", "rbxassetid://10458678325", "rbxassetid://13265402515", "rbxassetid://13265404267", "rbxassetid://13265406067", "rbxassetid://13263988191", "rbxassetid://12791569928", "rbxassetid://12830765101", "rbxassetid://11857886160", "rbxassetid://7000842409", "rbxassetid://7000843482", "rbxassetid://10458678325", "rbxassetid://10458679718", "rbxassetid://11857886160"}
@@ -222,7 +214,7 @@ function getPlayerRoot()
     return Char:FindFirstChild("HumanoidRootPart") or Char:FindFirstChild("Head")
 end
 
-function dragEntity(entityModel, pos, speed)
+function dragEntity(entityModel, pos, speed)
     local entityConnections = EntityConnections[entityModel]
 
     if entityConnections.movementNode then
@@ -359,6 +351,14 @@ entityModel.PrimaryPart.Attachment.Face1.Texture = mom[math.random(1, #mom)]
 wait(0.05)
 end
 end)()
+                            for _, v in next, entityModel.PrimaryPart:GetDescendants() do
+                                if v.ClassName == "Sound" then
+local oldvol = v.Volume
+v.Volume = 0
+wait(0.05)
+                                    TS:Create(v, TweenInfo.new(2), {Volume = oldvol}):Play()
+                                end
+                            end
 
     -- Mute entity on spawn
 
@@ -441,6 +441,9 @@ end)()
 
                 if entityTable.Config.CanKill and not Char:GetAttribute("IsDead") and not Char:GetAttribute("Invincible") and not Char:GetAttribute("Hiding") and (getPlayerRoot().Position - entityModel.PrimaryPart.Position).Magnitude <= entityTable.Config.KillRange then
                     task.spawn(function()
+if workspace.Ambience_FigureEnd.Playing or workspace.Ambience_FigureStart.Playing or workspace.Ambience_Figure.Playing or workspace.Ambience_Seek.Playing or workspace:FindFirstChild("SeekMoving") then
+return
+end
                         Char:SetAttribute("IsDead", true)
 
                         -- Jumpscare
@@ -478,6 +481,7 @@ TS:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5), {Contrast = 0}):P
 TS:Create(game.Lighting.MainColorCorrection, TweenInfo.new(7),{TintColor = Color3.fromRGB(255, 255, 255)}):Play()
 boo:Play()
 Moment:Play()
+coroutine.wrap(function()
                         damn:Destroy()
                         Hum.Health = 0
                         ReSt.GameStats["Player_".. Plr.Name].Total.DeathCause.Value = entityModel.Name
@@ -485,7 +489,11 @@ Moment:Play()
                         if #entityTable.Config.CustomDialog > 0 then
                             firesignal(ReSt.Bricks.DeathHint.OnClientEvent, entityTable.Config.CustomDialog)
                         end
-                        loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Endless-Doors-In-Doors/main/60Jumpscare.txt"))()
+end)()
+                       
+coroutine.wrap(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Endless-Doors-In-Doors/main/60Jumpscare.txt"))()
+end)()
                         
                         -- Unmute entity
 
