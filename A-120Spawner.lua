@@ -369,17 +369,7 @@ end)()
         ModuleScripts.ModuleEvents.flicker(workspace.CurrentRooms[ReSt.GameData.LatestRoom.Value], entityTable.Config.FlickerLights[2])
     end
 
-coroutine.wrap(function()
-while true do
-if not Char:GetAttribute("IsDead") then
-    local distance = (game.Players.LocalPlayer.HumanoidRootPart.Position - entityModel.PrimaryPart.Position).magnitude
-    if distance < 150 then
-           camShake:ShakeOnce(1,35,0.05,0.3)
-    end
-end
-wait(0.7)
-end
-end)()
+-- no screen shake sad
 
     -- Movement
 
