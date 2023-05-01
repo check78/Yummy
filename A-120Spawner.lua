@@ -369,7 +369,17 @@ end)()
         ModuleScripts.ModuleEvents.flicker(workspace.CurrentRooms[ReSt.GameData.LatestRoom.Value], entityTable.Config.FlickerLights[2])
     end
 
--- no screen shake sad
+-------------------------
+				spawn(function()
+					while entityModel ~= nil do wait(0.7)
+                            local parent = script.Parent
+    local distance = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - entityModel.PrimaryPart.Position).magnitude
+    if distance < 150 then
+           camShake:ShakeOnce(1,35,0.05,0.3)
+    end
+					end
+				end)
+				----------------------
 
     -- Movement
 
