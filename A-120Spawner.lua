@@ -25,7 +25,7 @@ Modl.Parent = workspace
 Modl.PrimaryPart = Eyes
 
 			local Attachment = Instance.new("Attachment", Eyes)
-            Attachment.Position = Vector3.new(0, 2, 0)
+             Attachment.Position = Attachment.Position+Vector3.new(0, 2, 0)
 
 			local EyesParticle = Instance.new("ParticleEmitter", Attachment)
 			EyesParticle.LightInfluence = 0
