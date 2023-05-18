@@ -44,7 +44,7 @@ imageLabel.ImageColor3 = Color3.fromRGB(0,191,255)
 
 			local Light1 = Instance.new("PointLight", Eyes)
 
-			Light1.Brightness = 10
+			Light1.Brightness = 5
 			Light1.Color = Color3.fromRGB(0,0,255)
 			Light1.Enabled = true
 			Light1.Range = 35
@@ -138,11 +138,6 @@ local Static = roast
     eq.MidGain = 10
     eq.LowGain = 10
     eq.Parent = Static
-local flange = Instance.new("FlangeSoundEffect")
-flange.Parent = Static
-flange.Depth = 0.06
-flange.Mix = 0.86
-flange.Rate = 5
 local Reverb = Instance.new("ReverbSoundEffect")
 Reverb.DecayTime = 1.5
 Reverb.Density = 1
