@@ -432,7 +432,7 @@ end
 wait(0.05)
                         coroutine.wrap(function()
 Bruh:Play()
-TS:Create(game.Lighting.MainColorCorrection, TweenInfo.new(1), {Contrast = 0.7}):Play()
+TS:Create(game.Lighting.MainColorCorrection, TweenInfo.new(0.2), {Contrast = 0.7}):Play()
                         while scaring == true do
 if Hum.Health == 0 then
 boo:Play()
@@ -442,10 +442,10 @@ coroutine.wrap(function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Endless-Doors-In-Doors/main/60Jumpscare.txt"))()
 end)()
 ReSt.GameStats["Player_".. Plr.Name].Total.DeathCause.Value = entityModel.Name
-return TS:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5), {Contrast = 0.2}):Play()
+return TS:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5), {Contrast = 0.05}):Play()
 end
                         game.TweenService:Create(entityModel.PrimaryPart, TweenInfo.new(0.1),{CFrame = game.Workspace.CurrentCamera.CFrame * CFrame.new(0, -0.2, -6)}):Play()
-game.Players.LocalPlayer.Character.Humanoid:TakeDamage(2)
+game.Players.LocalPlayer.Character.Humanoid:TakeDamage(5)
 task.wait()
 end
                         end)()
@@ -453,8 +453,9 @@ end
 coroutine.wrap(function()
 while entityModel ~= nil do
 if Char:GetAttribute("Hiding") then
-scare = false
+scaring = false
 Moment:Play()
+TS:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5), {Contrast = 0.05}):Play()
 end
 task.wait()
 end
