@@ -45,7 +45,7 @@ imageLabel.ImageColor3 = Color3.fromRGB(0,191,255)
 			local Light1 = Instance.new("PointLight", Eyes)
 
 			Light1.Brightness = 10
-			Light1.Color = Color3.fromRGB(0,191,255)
+			Light1.Color = Color3.fromRGB(0,0,255)
 			Light1.Enabled = true
 			Light1.Range = 35
 			Light1.Shadows = true
@@ -118,7 +118,7 @@ local roast = Instance.new("Sound")
 roast.Parent = Eyes
 roast.Name = "Close"
 roast.SoundId = "rbxassetid://8028069841"
-roast.Volume = 4
+roast.Volume = 1.5
 roast.Pitch = 1
 local distort = Instance.new("DistortionSoundEffect")
 distort.Level = 0.9
