@@ -430,9 +430,9 @@ end
                         
                         task.spawn(entityTable.Debug.OnDeath)
 wait(0.05)
-TS:Create(game.Lighting.MainColorCorrection, TweenInfo.new(1), {Contrast = 0.7}):Play()
                         coroutine.wrap(function()
 Bruh:Play()
+TS:Create(game.Lighting.MainColorCorrection, TweenInfo.new(1), {Contrast = 0.7}):Play()
                         while scaring == true do
 if Hum.Health == 0 then
 boo:Play()
@@ -444,16 +444,18 @@ end)()
 ReSt.GameStats["Player_".. Plr.Name].Total.DeathCause.Value = entityModel.Name
 return TS:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5), {Contrast = 0.2}):Play()
 end
-                        game.TweenService:Create(damn,TweenInfo.new(0.1),{CFrame = game.Workspace.CurrentCamera.CFrame * CFrame.new(0, -0.2, -6)}):Play()
+                        game.TweenService:Create(entityModel.PrimaryPart, TweenInfo.new(0.1),{CFrame = game.Workspace.CurrentCamera.CFrame * CFrame.new(0, -0.2, -6)}):Play()
 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(2)
 task.wait()
 end
                         end)()
 
 coroutine.wrap(function()
-while Char:GetAttribute("Hiding", true) do
+while entityModel ~= nil do
+if Char:GetAttribute("Hiding", true) then
 scare = false
-Bruh:Play()
+Moment:Play()
+end
 task.wait()
 end
 end)()
