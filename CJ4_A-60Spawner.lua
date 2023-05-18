@@ -528,8 +528,6 @@ end)()
                                     TS:Create(v, TweenInfo.new(2), {Pitch = 0}):Play()
                                 end
                             end
-        JumpscareSound:Destroy()
-        boo:Destroy()
         wait(5)
         entityModel:Destroy()
     end
