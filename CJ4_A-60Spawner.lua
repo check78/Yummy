@@ -452,7 +452,7 @@ end
 
 coroutine.wrap(function()
 while entityModel ~= nil do
-if Char:GetAttribute("Hiding", true) then
+if Char:GetAttribute("Hiding") then
 scare = false
 Moment:Play()
 end
