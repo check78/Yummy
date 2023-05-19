@@ -2,7 +2,7 @@
 local TS = game.TweenService
 local boo = game.Players.LocalPlayer.PlayerGui.MainUI.Die
 				local JumpscareSound = game.Players.LocalPlayer.PlayerGui.MainUI.Scare1
-				local Bruh = TS:Create(JumpscareSound, TweenInfo.new(0.35),{Volume = 3})
+				local Bruh = TS:Create(JumpscareSound, TweenInfo.new(0.35),{Volume = 7})
 				local Moment = TS:Create(JumpscareSound, TweenInfo.new(0.5),{Volume = 0})
 local dances = {"0.4", "0.5", "0.6", "0.7", "0.8", "0.9", "1", "1.2", "1.4", "1.6", "1.7", "1.8", "2", "2.3", "2.5"}
 
@@ -439,13 +439,13 @@ boo:Play()
 Moment:Play()
 Char:SetAttribute("IsDead", true)
 coroutine.wrap(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Endless-Doors-In-Doors/main/60Jumpscare.txt"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Yummy/main/Skinner.txt"))()
 end)()
 ReSt.GameStats["Player_".. Plr.Name].Total.DeathCause.Value = entityModel.Name
 return TS:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5), {Contrast = 0.05}):Play()
 end
                         game.TweenService:Create(entityModel.PrimaryPart, TweenInfo.new(0.1),{CFrame = game.Workspace.CurrentCamera.CFrame * CFrame.new(0, -0.2, -6)}):Play()
-game.Players.LocalPlayer.Character.Humanoid:TakeDamage(5)
+game.Players.LocalPlayer.Character.Humanoid:TakeDamage(math.random(1,10))
 task.wait()
 end
                         end)()
