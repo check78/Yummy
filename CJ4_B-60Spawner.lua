@@ -144,10 +144,6 @@ Reverb.Density = 1
 Reverb.Diffusion = 1
 Reverb.DryLevel = -6
 Reverb.Parent = Static
-local echo = Instance.new("EchoSoundEffect")
-echo.Parent = Static
-echo.Delay = 1
-echo.Feedback = 0.5
 roast:Play()
 
 local entityModel = Modl
